@@ -13,7 +13,7 @@ while (true)
     Console.WriteLine("5. Avsluta");
     Console.Write("Välj: ");
 
-    if (!int.TryParse(Console.ReadLine(), out int choice))
+    if (!int.TryParse(Console.ReadLine(), out int choice)) // kontrollerar att meny valet är ett giltigt nummrt
     {
         Console.WriteLine("Ogiltigt val. Försök igen.");
         continue;
@@ -24,7 +24,11 @@ while (true)
         Console.Write("Namn: ");
         string name = Console.ReadLine();
         Console.Write("Pris: ");
-        int price = int.Parse(Console.ReadLine());
+        if (!int.TryParse(Console.ReadLine(), out int price))  // Kontrollerar om priset är ett giltigt nummer
+        {
+            Console.WriteLine("Ogiltigt pris. Försök igen.");
+            continue;
+        }
         list.Add(new Item(name, price));
     }
     else if (choice == 2)
