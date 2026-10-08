@@ -34,7 +34,11 @@ while (true)
     else if (choice == 2)
     {
         Console.Write("Nummer: ");
-        int number = int.Parse(Console.ReadLine());
+        if (!int.TryParse(Console.ReadLine(), out int number))  // Kontrollerar att numret är giltigt
+        {
+            Console.WriteLine("Ogiltigt nummer. Försök igen.");
+            continue;
+        }
         list.RemoveAt(number);
     }
     else if (choice == 3)
