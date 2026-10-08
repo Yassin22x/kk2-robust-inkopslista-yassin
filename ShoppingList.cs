@@ -77,8 +77,10 @@ class ShoppingList
         {
             File.WriteAllText(path, string.Join("\r\n", lines) + "\r\n");
         }
-        catch
+        catch (IOException)  // Hanterar fel vid sparning av filen
         {
+            Console.WriteLine("Kunde inte spara filen.");
+            return;
         }
 
         Console.WriteLine("Listan är sparad.");
