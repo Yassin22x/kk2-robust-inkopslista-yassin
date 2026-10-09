@@ -30,10 +30,23 @@ while (true)
             continue;
         }
        try
+        
         {
+              
+    if (list.Add(new Item(name, price)))  // Kontrollerar om varan får plats inom budgeten
+    {
+        Console.WriteLine("Varan har lagts till.");
+    }
+    else
+    {
+        Console.WriteLine("Du har överskridit din budget.");
+    }
+           
     
-        list.Add(new Item(name, price));
         }
+       
+       
+       
         catch (ArgumentOutOfRangeException)  // Hantera negativt pris
         {
             Console.WriteLine("Priset får inte vara negativt.");
