@@ -3,6 +3,7 @@ class ShoppingList
 {
     private List<Item> items = new List<Item>();
     private string path;
+    private int budget = 100;  // Maxbelopp för inköpslistan
 
     public ShoppingList(string path)
     {
@@ -11,6 +12,14 @@ class ShoppingList
 
     public void Add(Item item)
     {
+        if (Total() + item.Price > budget)  // Kontrollerar om budgeten överskrids
+        {
+            Console.WriteLine("Du har överskridit din budget.");
+            return;
+        }
+        
+        
+        
         items.Add(item);
     }
 
