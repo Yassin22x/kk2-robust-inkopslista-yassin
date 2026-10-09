@@ -103,7 +103,7 @@ class ShoppingList
             {
                 continue;  // Hoppar över tomma rader
             }
-            string[] parts = line.Split(';');
+            string[] parts = line.Trim().Split(';');  // Tar bort osynliga tecken vid inläsning
             items.Add(new Item(parts[1], int.Parse(parts[0])));
         }
     }
