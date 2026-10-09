@@ -29,7 +29,19 @@ while (true)
             Console.WriteLine("Ogiltigt pris. Försök igen.");
             continue;
         }
+       try
+        {
+    
         list.Add(new Item(name, price));
+        }
+        catch (ArgumentOutOfRangeException)  // Hantera negativt pris
+        {
+            Console.WriteLine("Priset får inte vara negativt.");
+        }
+        catch (ArgumentException)  // Hanterar tomt namn
+        {
+            Console.WriteLine("Namnet får inte vara tomt.");
+        }
     }
     else if (choice == 2)
     {
